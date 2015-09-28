@@ -1,0 +1,187 @@
+<div class="parallax-mirror">
+  <%= image_tag('banner.png', class: "parallax-slider") %>
+</div>
+  
+<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	<ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">How it works</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a data-toggle="modal" data-target="#signupModal" href="#">Signup</a>
+                    </li>
+                    <li>
+                        <a data-toggle="modal" data-target="#signupModal" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+
+    <!--<header class="intro-header" style="background-image: url('img/banner.png')">-->
+    <header class="intro-header parallax-window" data-parallax="scroll" data-image-src="<%= image_url('banner.png') %>">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                	<div class="logo wow flipInX animated animated" style="visibility: visible; animation-name: flipInX;">
+                    <%= image_tag('logo.png') %>
+                    <div class="site-heading">
+                        <h1>We help you find the right size<br> before you buy online!</h1>
+                        <button class="btn" data-toggle="modal" data-target="#quizModal"><i class="fa fa-plus-square-o"></i>New Measurement</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- About -->    
+    <div class="about">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-4">
+                	<h1>1.Lorem ipsum</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+                <div class="col-md-4">
+                	<h1>2.Lorem ipsum</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+                <div class="col-md-4">
+                	<h1>3.Lorem ipsum</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Dashboard -->    
+    <div class="dashboard">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-12 cus-mar">
+                	<h1>Fantastic features, awesome fdashboard</h1>
+                    <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col-md-3 cus-pad">
+                	<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+                <div class="col-md-9">
+                	<%= image_tag('pix1.png', class: "img-responsive wow fadeInRight animated", style: "visibility: visible; animation-name: fadeInRight;") %>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dashboard">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-12 cus-mar">
+                	<h1>Fantastic features, awesome fdashboard</h1>
+                    <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col-md-9">
+                  <%= image_tag('pix2.png', class: "img-responsive wow fadeInLeft animated", style: "visibility: visible; animation-name: fadeInLeft;") %>
+                </div>
+            	<div class="col-md-3 cus-pad">
+                	<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Team -->    
+    <div class="team">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-12">
+                	<h1>Team</h1>
+                </div>
+            </div>
+            
+        	<div class="row">
+            	<div class="col-md-3 detail">
+                    <%= image_tag('team.png', class: "img-responsive") %>
+                    <div class="name">
+                    	<h3>Caroline C.</h3>
+                  </div>
+                    <div class="desc">
+                    	<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 detail">
+                	<%= image_tag('team.png', class: "img-responsive") %>
+                    <div class="name">
+                    	<h3>John J.</h3>
+                  </div>
+                    <div class="desc">
+                    	<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 detail">
+                	<%= image_tag('team.png', class: "img-responsive") %>
+                    <div class="name">
+                    	<h3>Jim P.</h3>
+                  </div>
+                    <div class="desc">
+                    	<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 detail">
+                	<%= image_tag('team.png', class: "img-responsive") %>
+                    <div class="name">
+                    	<h3>Peter S.</h3>
+                  </div>
+                    <div class="desc">
+                    	<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->    
+    <div class="footer">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-12">
+                	<h1>Fantastic features, awesome fdashboard</h1>
+                    <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                </div>
+                	<button class="btn wow pulse animated animated" data-toggle="modal" data-target="#quizModal" style="visibility: visible; animation-name: pulse;"><i class="fa fa-plus-square-o"></i>New Measurement</button>
+            </div>
+        </div>
+        <a href="http://dev-fashquare.trivand.com/html/index.html#" class="crunchify-top" style="display: none;">↑</a>
+    </div>
+    
