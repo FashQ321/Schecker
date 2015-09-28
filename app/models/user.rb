@@ -13,9 +13,20 @@ class User < ActiveRecord::Base
 	# t.decimal  "waist",                  precision: 3, scale: 1
 	# t.string   "type_of_height",                                 default: "inches"
 	# t.string   "type_of_weight",                                 default: "libres"
+	# t.string   "welcome_step"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  def password_required?
+	  new_record? ? false : super
+	end
+
+	def email_required?
+	  false
+	end
+
 end
