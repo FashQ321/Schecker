@@ -11,24 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928134307) do
+ActiveRecord::Schema.define(version: 20150928142029) do
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "gender"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                                          default: "",       null: false
+    t.string   "encrypted_password",                             default: "",       null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                  default: 0,        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                                        null: false
+    t.datetime "updated_at",                                                        null: false
+    t.integer  "age"
+    t.decimal  "height",                 precision: 5, scale: 2
+    t.decimal  "weight",                 precision: 5, scale: 2
+    t.string   "type_of_height",                                 default: "inches"
+    t.string   "type_of_weight",                                 default: "libres"
+    t.decimal  "neck",                   precision: 3, scale: 1
+    t.decimal  "bust",                   precision: 3, scale: 1
+    t.decimal  "waist",                  precision: 3, scale: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
