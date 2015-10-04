@@ -1,0 +1,8 @@
+<ul class="dotted-breadcrumb">
+	<li<%= raw " class='current'" if @step.to_s == "gender" %>><%= link_to 'Gender', "#" %></li>
+	<li<%= raw " class='current'" if @step.to_s == "body_shape" %>><%= link_to 'Body Shape', "#" %></li>
+	<li<%= raw " class='current'" if @step.to_s == "measurements" %>><%= link_to 'Measurements', "#" %></li>
+	<li<%= raw " class='current'" if @step.to_s == "age" %>><%= link_to 'Age', "#" %></li>
+	<li<%= raw " class='current'" if @step.to_s == "brands" %>><%= link_to 'Brands', "#" %></li>
+	<li<%= raw " class='current'" if @step.to_s == "signup" %>><%= link_to 'Signup', "#" %></li>
+</ul>

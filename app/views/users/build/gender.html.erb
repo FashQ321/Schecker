@@ -1,0 +1,43 @@
+<div class="container huge-padding text-center">
+
+	<%= render "users/fragments/nav" %>
+
+	<div class="row">
+		<div class="medium-6 medium-centered columns">
+
+			<%= form_for @user, url: user_build_path(@user, @step), method: :put do |f| %>
+
+				<%= render "shared/form_errors", object: @user %>
+				<%= f.hidden_field :welcome_step, value: @step %>
+
+				<h1 class="welcome">I am</h1>
+
+				<div class="options_padding">
+					<div class="row">
+						<div class="medium-6 columns">
+							<div class="replace_input">
+								<%= f.radio_button :gender, 'male' %>
+								<label for="user_gender_male">
+									<%= image_tag("male.jpg") %>
+								</label>
+							</div>
+						</div>
+						<div class="medium-6 columns">
+							<div class="replace_input">
+								<%= f.radio_button :gender, 'female' %>
+								<label for="user_gender_female">
+									<%= image_tag("female.jpg") %>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<%= f.submit "Continue", class: "btn" %>
+
+			<% end %>
+
+		</div>
+	</div>
+
+</div>

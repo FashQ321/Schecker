@@ -1,0 +1,27 @@
+<div class="container big-padding text-center">
+
+	<%= render "users/fragments/nav" %>
+
+	<div class="row full">
+		<div class="medium-12 medium-centered columns">
+
+			<%= form_for @user, url: user_build_path(@user, @step), method: :put do |f| %>
+
+				<%= render "shared/form_errors", object: @user %>
+				<%= f.hidden_field :welcome_step, value: @step %>
+
+				<h1 class="welcome">Select your body shape</h1>
+
+				<div class="options_padding">
+					<%= render "users/fragments/male_shape", f: f if @user.gender == "male" %>
+					<%= render "users/fragments/female_shape", f: f if @user.gender == "female" %>
+				</div>
+
+				<%= f.submit "Continue", class: "btn" %>
+
+			<% end %>
+
+		</div>
+	</div>
+
+</div>

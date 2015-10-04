@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928151844) do
+ActiveRecord::Schema.define(version: 20151004191229) do
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -38,9 +38,16 @@ ActiveRecord::Schema.define(version: 20150928151844) do
     t.decimal  "bust",                   precision: 3, scale: 1
     t.decimal  "waist",                  precision: 3, scale: 1
     t.string   "welcome_step"
+    t.decimal  "chest",                  precision: 3, scale: 1
+    t.decimal  "sleeves",                precision: 3, scale: 1
+    t.decimal  "hips",                   precision: 3, scale: 1
+    t.decimal  "inside_legs",            precision: 3, scale: 1
+    t.decimal  "feet",                   precision: 3, scale: 1
+    t.string   "fit"
+    t.integer  "body_shape"
+    t.text     "brands"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

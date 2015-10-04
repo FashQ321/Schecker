@@ -51,7 +51,7 @@
                     <%= image_tag('logo.png') %>
                     <div class="site-heading">
                         <h1>We help you find the right size<br> before you buy online!</h1>
-                        <button class="btn" data-toggle="modal" data-target="#quizModal"><i class="fa fa-plus-square-o"></i>New Measurement</button>
+                        <%= link_to "<i class='fa fa-plus-square-o'></i>New Measurement".html_safe, user_build_index_path(:user_id => "building"), :method=> :post, class: "btn" %>
                     </div>
                 </div>
             </div>

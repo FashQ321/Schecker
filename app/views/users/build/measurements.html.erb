@@ -1,0 +1,44 @@
+<div class="container big-padding text-center">
+
+	<%= render "users/fragments/nav" %>
+
+	<div class="row full">
+		<div class="medium-8 medium-centered columns">
+
+			<%= form_for @user, url: user_build_path(@user, @step), method: :put do |f| %>
+
+				<%= render "shared/form_errors", object: @user %>
+				<%= f.hidden_field :welcome_step, value: @step %>
+
+				<h1 class="welcome">Add your measurements</h1>
+
+				<div class="options_padding">
+					<%= render "users/fragments/male_measurements", f: f if @user.male? %>
+					<%= render "users/fragments/female_measurements", f: f if @user.female? %>
+				</div>
+
+				<p><a href="#explanation" class="popup_modal">Don't know your measurements? Click here</a></p>
+
+				<%= f.submit "Continue", class: "btn" %>
+
+			<% end %>
+
+		</div>
+	</div>
+
+</div>
+
+
+
+<div id="explanation" class="mfp-hide modal_magnific medium animated zoomIn">
+
+  <div class="row">
+    <div class="medium-12 columns">
+
+    	<h2>Blah blah</h2>
+
+    	<p>Blah blah blah blah</p>
+
+    </div>
+  </div>
+</div>

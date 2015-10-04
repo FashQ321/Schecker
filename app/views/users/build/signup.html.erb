@@ -1,0 +1,43 @@
+<div class="container big-padding text-center">
+
+	<%= render "users/fragments/nav" %>
+
+	<div class="row full">
+		<div class="medium-4 medium-centered columns">
+
+			<%= form_for @user, url: user_build_path(@user, @step), method: :put do |f| %>
+
+				<%= render "shared/form_errors", object: @user %>
+				<%= f.hidden_field :welcome_step, value: @step %>
+
+				<h1 class="welcome">Create an account</h1>
+
+				<div>
+					<%= f.label :first_name %>
+					<%= f.text_field :first_name, autofocus: true %>
+				</div>
+
+				<div>
+					<%= f.label :last_name %>
+					<%= f.text_field :last_name %>
+				</div>
+
+				<div>
+					<%= f.label :email %>
+					<%= f.email_field :email %>
+				</div>
+
+				<div>
+					<%= f.label :password %>
+					<%= f.password_field :password, autocomplete: "off" %>
+				</div>
+				
+
+				<%= f.submit "Finish", class: "btn" %>
+
+			<% end %>
+
+		</div>
+	</div>
+
+</div>

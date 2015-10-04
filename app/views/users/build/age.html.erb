@@ -1,0 +1,28 @@
+<div class="container big-padding text-center">
+
+	<%= render "users/fragments/nav" %>
+
+	<div class="row full">
+		<div class="medium-4 medium-centered columns">
+
+			<%= form_for @user, url: user_build_path(@user, @step), method: :put do |f| %>
+
+				<%= render "shared/form_errors", object: @user %>
+				<%= f.hidden_field :welcome_step, value: @step %>
+
+				<h1 class="welcome">Your age</h1>
+
+				<div class="options_padding">
+					<div class="single_option vertical normal">
+						<%= f.number_field :age, in: 18...99, class: "big_input text-center", autofocus: true %>
+					</div>
+				</div>
+
+				<%= f.submit "Continue", class: "btn" %>
+
+			<% end %>
+
+		</div>
+	</div>
+
+</div>
