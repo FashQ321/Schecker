@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   validates :brands, presence: { :message => "You must choose at least one brand" }, :if => :active_or_brands?
   validate 	:measurements, :if => :active_or_measurements?
   validates :age, presence: { :message => "You must set an age" }, :if => :active_or_age?
+  validate 	:signup, :if => :active_or_signup?
   
 
   def password_required?
@@ -76,6 +77,10 @@ class User < ActiveRecord::Base
   	(welcome_step.include?('brands') || active?) if welcome_step
   end
 
+  def active_or_signup?
+  	(welcome_step.include?('signup') || active?) if welcome_step
+  end
+
   def measurements
 		errors.add(:neck, "You must provide a measure for the neck") if neck.nil? && male?
 		errors.add(:bust, "You must provide a measure for the bust") if bust.nil? && female?
@@ -85,6 +90,13 @@ class User < ActiveRecord::Base
 		errors.add(:hips, "You must provide a measure for the hips") if hips.nil?
 		errors.add(:inside_legs, "You must provide a measure for the inside legs") if inside_legs.nil?
 		errors.add(:feet, "You must provide a measure for the feet") if feet.nil?
+  end
+
+  def signup
+  	errors.add(:first_name, "You must provide a first name") if first_name.blank?
+  	errors.add(:last_name, "You must provide a last name") if last_name.blank?
+		errors.add(:email, "You must provide an email") if email.blank?
+		errors.add(:password, "You must provide a password") if password.blank?
   end
 
 end

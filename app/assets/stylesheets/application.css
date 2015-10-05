@@ -881,6 +881,39 @@ p.signin.button {
 	max-width: none;
 }
 
+input[type=text], input[type=password], input[type=tel], input[type=search], input[type=url], input[type=email], input[type=number], textarea, select, .editable {
+  border: solid #ccc 1px;
+  border-radius: 3px;
+  font-family: inherit;
+  width: 100%;
+  font-size: 0.9em;
+  background: #fff;
+  padding: 5px;
+  outline: 0;
+  appearance: none;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out; 
+}
+
+input[type=text]:focus, input[type=tel]:focus, input[type=password]:focus, input[type=search]:focus, input[type=search]:focus, input[type=number]:focus, input[type=email]:focus, textarea:focus {
+  box-shadow: 0 0 5px #7f8c8d;
+  border: solid 1px #aaa;
+}
+
+label.modern {
+  text-transform: uppercase;
+  font-size: 0.95em;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
 #error_explanation {
   padding: 7px;
   margin-bottom: 20px;
