@@ -51,6 +51,14 @@ img {
   display: inline-block;
   vertical-align: middle; }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
 a:hover,
 a:focus {
     text-decoration: none;
@@ -765,12 +773,9 @@ p.signin.button {
     background-image: none!important
 }
 
-.big_input {
-    width: 100%;
-    padding: 5px;
-    border-radius: 3px;
-    font-size: 1.9em;
-    border: solid #ccc 1px;
+input.big_input {
+    padding: 5px !important;
+    font-size: 1.9em !important;
 }
 
 .modal_magnific {
@@ -886,15 +891,16 @@ input[type=text], input[type=password], input[type=tel], input[type=search], inp
   border-radius: 3px;
   font-family: inherit;
   width: 100%;
-  font-size: 0.9em;
+  font-size: 1.2em;
   background: #fff;
-  padding: 5px;
+  padding: 4px 7px;
   outline: 0;
   appearance: none;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out; 
+  -o-transition: all 0.25s ease-in-out;
+  height: 42px;
 }
 
 input[type=text]:focus, input[type=tel]:focus, input[type=password]:focus, input[type=search]:focus, input[type=search]:focus, input[type=number]:focus, input[type=email]:focus, textarea:focus {
@@ -949,6 +955,17 @@ label.modern {
           margin: 20px 0 40px;
         }
 
+        .single_option.vertical.tiny {
+          margin: 20px 0;
+        }
+
+span.size {
+    color: #00c7d7;
+    border: solid #00c7d7 1px;
+    padding: 7px;
+    margin-left: 10px;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -987,7 +1004,7 @@ ul.dotted-breadcrumb {
     border-radius: 50%;
     background-color: #ccc;
     text-indent: -999em;
-    cursor: pointer;
+    cursor: default;
     position: absolute;
     -webkit-transition: -webkit-transform .3s ease , background-color .3s ease;
     transition: transform .3s ease , background-color .3s ease;
@@ -1000,7 +1017,7 @@ ul.dotted-breadcrumb {
   }
 
   ul.dotted-breadcrumb li a:hover, ul.dotted-breadcrumb li a:focus {
-    background-color: #02c266;
+    cursor: default;
   }
 
 .slider.ui-slider {
@@ -1058,7 +1075,7 @@ ul.dotted-breadcrumb {
   padding: 85px 0;
 }
 
-.replace_input input {
+.replace_input input, .switch input {
   display:none;
 }
 
@@ -1066,13 +1083,14 @@ ul.dotted-breadcrumb {
     border-radius: 10px;
     border: solid 3px #ccc;
     transition: 0.3s all ease;
+    position: relative;
   }
 
     .replace_input.padding input + label {
-      padding: 15px;
+      padding: 7px;
     }
     
-  .replace_input input:checked + label, .replace_input input + label:hover {
+  .replace_input:not(.checked) input:checked + label, .replace_input input + label:hover {
     cursor: pointer;
     border-color: #2ecc71;
     box-shadow: 1px 1px 17px rgba(0,0,0,.4);
@@ -1081,3 +1099,98 @@ ul.dotted-breadcrumb {
   .replace_input input + label img {
     border-radius: 10px;
   }
+
+.replace_input.checked label span {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.6);
+    border-radius: 8px;
+    transition: 0.3s all ease;
+    color: #fff;
+    font-size: 6em;
+    line-height: 2em;
+}
+
+    .replace_input.checked input:checked + label span {
+        opacity: 1;
+    }
+
+
+.switch {
+    position: relative;
+    height: 40px;
+    width: 160px;
+    border-radius: 3px;
+}
+
+    .switch input:checked + label {
+        font-weight: bold;
+        color: #000;
+        -webkit-transition: 0.15s ease-out;
+        -moz-transition: 0.15s ease-out;
+        -o-transition: 0.15s ease-out;
+        transition: 0.15s ease-out;
+    }
+
+    .switch label {
+        position: relative;
+        z-index: 2;
+        float: left;
+        width: 78px;
+        line-height: 45px;
+        font-size: 14px;
+        color: #222;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .switch label:active {
+      font-weight: bold;
+    }
+
+    .switch label.first {
+        padding-left: 2px;
+    }
+
+    .switch label.second {
+        padding-right: 2px;
+    }
+
+    .switch-selection {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 2px;
+        left: 2px;
+        width: 78px;
+        height: 40px;
+        background: #42dca3;
+        border-radius: 3px;
+        -webkit-transition: left 0.15s ease-out;
+        -moz-transition: left 0.15s ease-out;
+        -o-transition: left 0.15s ease-out;
+        transition: left 0.15s ease-out;
+    }
+
+    .switch input:checked + label.second ~ .switch-selection {
+      left: 80px;
+    }
+
+.floating_labels {
+    position: relative;
+}
+
+    .floating_labels label {
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        margin-top: -10px;
+    }
+
+.switch.centered {
+    margin: 0 auto;
+}

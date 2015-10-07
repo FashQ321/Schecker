@@ -32,8 +32,8 @@ class User < ActiveRecord::Base
   validates :gender, presence: { :message => "You must choose a gender" }, :if => :active_or_gender?
   validates :body_shape, presence: { :message => "You must choose a body shape" }, :if => :active_or_body_shape?
   validates :brands, presence: { :message => "You must choose at least one brand" }, :if => :active_or_brands?
-  validate 	:measurements, :if => :active_or_measurements?
-  validates :age, presence: { :message => "You must set an age" }, :if => :active_or_age?
+  #validate 	:measurements, :if => :active_or_measurements?
+  validate  :details, :if => :active_or_age?
   validate 	:signup, :if => :active_or_signup?
   
 
@@ -90,6 +90,12 @@ class User < ActiveRecord::Base
 		errors.add(:hips, "You must provide a measure for the hips") if hips.nil?
 		errors.add(:inside_legs, "You must provide a measure for the inside legs") if inside_legs.nil?
 		errors.add(:feet, "You must provide a measure for the feet") if feet.nil?
+  end
+
+  def details
+    errors.add(:age, "You must set an age") if age.nil?
+    errors.add(:weight, "You must set a weight") if weight.nil?
+    errors.add(:height, "You must set a height") if height.nil?
   end
 
   def signup

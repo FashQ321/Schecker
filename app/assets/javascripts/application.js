@@ -28,6 +28,7 @@ $(document).ready(function () {
       value: parseFloat($(this).data('value')),
       change: function(event, ui) { 
         $(this).parent().find('input[type=hidden]').val(ui.value);
+        $(this).parents('.single_option').find("span.size").text(ui.value);
     	}
 		})
     .slider("pips", {
@@ -43,6 +44,10 @@ $(document).ready(function () {
   $('.close_popup').on( "click", function(e) {
     e.preventDefault();
     $.magnificPopup.close();
+  });
+
+  $(document).on("change", ".switch.floating input", function(a){
+    $(this).parents('.single_option').find('.floating_labels label').text($(this).val());
   });
 
 });
