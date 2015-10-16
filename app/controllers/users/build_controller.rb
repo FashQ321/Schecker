@@ -3,7 +3,7 @@ class Users::BuildController < ApplicationController
   include Wicked::Wizard
   steps :gender, :body_shape, :age, :measurements, :brands, :signup
 
-  before_action :load_brands, only: [:show, :update]
+  before_action :load_brands, only: [:show, :update, :finish_wizard_path]
 
   def show
     @brands = Hash[@brands.to_a.shuffle]
@@ -23,18 +23,24 @@ class Users::BuildController < ApplicationController
 
 
   def create
-    @user = User.create
+    @user = User.create(registration_token: SecureRandom.hex(9))
     redirect_to wizard_path(steps.first, :user_id => @user.id)
+  end
+
+  def finish_wizard_path
+    sign_in @user
+    completed_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:gender, :email, :welcome_step, :body_shape, :neck, :chest, :sleeves, :waist, :hips, :inside_legs, :feet, :temp_brands, :brands, :age, :height, :weight)
+    params.require(:user).permit(:gender, :email, :welcome_step, :body_shape, :neck, :chest, :sleeves, :waist, :hips, :inside_legs, :feet, :temp_brands, :brands, :age, :height, :weight, :first_name, :last_name, :email, :password)
   end
 
   def load_brands
     @user = User.find(params[:user_id])
+    session[:token_id] = @user.registration_token
 
     if step == :brands
       if @user.female?

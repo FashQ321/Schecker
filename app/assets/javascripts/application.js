@@ -18,8 +18,6 @@
 
 $(document).ready(function () {
 
-	$('.parallax-window').parallax();
-
 	$(".slider").each(function(){
     $(this).slider({
       max: parseFloat($(this).data('max')),

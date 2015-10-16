@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	# t.string   "first_name"
 	# t.string   "last_name"
 	# t.string   "gender"
-	# t.string   "email",                  default: "",       null: false
+	# t.string   "email",                  default: "",  null: false
 	# t.integer  "age"
 	# t.decimal  "height",                 precision: 5, scale: 2
 	# t.decimal  "weight",                 precision: 5, scale: 2
@@ -18,14 +18,17 @@ class User < ActiveRecord::Base
 	# t.decimal  "feet",                   precision: 3, scale: 1
 	# t.string   "fit"
 	# t.integer  "body_shape"
-	# t.string   "type_of_height",                                 default: "inches"
-	# t.string   "type_of_weight",                                 default: "libres"
+	# t.string   "type_of_height",         default: "inches"
+	# t.string   "type_of_weight",         default: "libres"
 	# t.string   "welcome_step"
+  # t.string   "registration_token"
+  # t.string   "provider"
+  # t.string   "uid"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   attr_accessor :temp_brands
 
@@ -35,7 +38,24 @@ class User < ActiveRecord::Base
   #validate 	:measurements, :if => :active_or_measurements?
   validate  :details, :if => :active_or_age?
   validate 	:signup, :if => :active_or_signup?
-  
+
+
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil, session_id=nil)
+    user = User.find_by(:provider => auth.provider, :uid => auth.uid)
+    return user if user
+    user = User.find_by(:email => auth.info.email)
+    return user if user
+    user = User.find_by(:registration_token => session_id)
+    user.first_name = ( auth.info.has_key?('first_name') ? auth.info.first_name : auth.info.name.split(" ")[0] )
+    user.last_name = ( auth.info.has_key?('last_name') ? auth.info.last_name : auth.info.name.split(" ")[1] )
+    user.provider = auth.provider
+    user.uid = auth.uid
+    user.email = ( auth.info.has_key?('email') ? auth.info.email : "#{session_id}@fake-email.com" )
+    user.password = Devise.friendly_token[0,20]
+    user.welcome_step = "active"
+    user.save
+    return user
+  end  
 
   def password_required?
 	  new_record? ? false : super

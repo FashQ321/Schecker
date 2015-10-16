@@ -18,6 +18,7 @@
 
 body {
   font-family: 'Signika', sans-serif;
+  min-height: 100%;
 }
 html {
     width: 100%;
@@ -872,8 +873,10 @@ input.big_input {
 	left: 0px;
 	overflow: hidden;
 	transform: translate3d(0px, 0px, 0px);
-	height: 630px;
+	height: 100%;
 	width: 1440px;
+    background-image: url(banner.png);
+    background-size: cover;
 }
 
 .parallax-slider {
@@ -881,7 +884,7 @@ input.big_input {
 	position: absolute;
 	top: -89px;
 	left: 0px;
-	height: 809px;
+	height: 100%;
 	width: 1440px;
 	max-width: none;
 }
@@ -1193,4 +1196,35 @@ ul.dotted-breadcrumb {
 
 .switch.centered {
     margin: 0 auto;
+}
+
+.super_divider {
+    color: #aaa;
+    border-bottom: solid #bbb 1px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    margin: 30px 0 60px;
+    text-align: center;
+}
+
+.super_divider span {
+    position: relative;
+    top: 8px;
+    background: #FFF;
+    padding: 0 15px;
+}
+
+
+a.facebook {
+    width: 100%;
+    padding: 12px;
+    color: #fff;
+    font-size: 1.6em;
+    background-color: #3B5999;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWBAMAAADOL2zRAAAAJFBMVEUCAgL///8iIiKwsLDBwcGSkpLZ2dnv7+9TU1Nvb28QEBA0NDTDY0pvAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3woPEBknH0OzrgAAAIpJREFUaN7t1DsRQkEURMHdFJJ3Q0KkIAUHWMABFnCAxJfxKcKdAortI6CzmdYkSZL0323r3jJI7StmHSpm9cpZlbOuQatyVg9a56BVOWsTtPoE1vGhnEbfJnc2z9YtaDUWawbr7SIGZjmvdQlajcV6bRe0lu9bPprFYrFYLBaLxWJ9xJIkSdLvtgLr60udyWlP2wAAAABJRU5ErkJggg==');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: auto 100%;
+    display: block;
+    text-align: center;
 }

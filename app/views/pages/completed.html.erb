@@ -1,0 +1,17 @@
+<div class="container big-padding text-center">
+
+	<div class="row full">
+		<div class="medium-8 medium-centered columns text-center">
+
+			<% if @user.male? %>
+				<p>Thank you for registering, unfortunately the male section is not ready yet.</p>
+			<% else %>
+				<h1>Congratulations <%= @user.first_name %></h1>
+				<p>Download our extension</p>
+			<% end %>
+				<p><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+
+		</div>
+	</div>
+
+</div>
