@@ -1,29 +1,29 @@
 <div class="single_option vertical">
-	<h3 class="uppercase">Bust <span class="size"><%= f.object.bust || "35" %></span></h3>
-	<div class="slider" data-min="32" data-max="38" data-step="0.5" data-value="<%= f.object.bust || "35" %>"></div>
+	<h3 class="uppercase">Bust <span class="size downcase"><%= f.object.bust || "40" %> inches</span></h3>
+	<div class="slider" data-min="30.75" data-max="49.5" data-step="0.25" data-measure="standard" data-value="<%= f.object.bust || "40" %>"></div>
 	<%= f.hidden_field :bust %>
 </div>
 
 <div class="single_option vertical">
-	<h3 class="uppercase">Waist <span class="size"><%= f.object.waist || "35" %></span></h3>
-	<div class="slider" data-min="32" data-max="38" data-step="0.5" data-value="<%= f.object.waist || "35" %>"></div>
+	<h3 class="uppercase">Waist <span class="size downcase"><%= f.object.waist || "33½" %> inches</span></h3>
+	<div class="slider" data-min="24" data-max="43.25" data-step="0.25" data-measure="standard" data-value="<%= f.object.waist || "33.5" %>"></div>
 	<%= f.hidden_field :waist %>
 </div>
 
 <div class="single_option vertical">
-	<h3 class="uppercase">Hips <span class="size"><%= f.object.hips || "35" %></span></h3>
-	<div class="slider" data-min="32" data-max="38" data-step="0.5" data-value="<%= f.object.hips || "35" %>"></div>
+	<h3 class="uppercase">Hips <span class="size downcase"><%= f.object.hips || "41½" %> inches</span></h3>
+	<div class="slider" data-min="30.75" data-max="52.5" data-step="0.25" data-measure="standard" data-value="<%= f.object.hips || "41.5" %>"></div>
 	<%= f.hidden_field :hips %>
 </div>
 
 <div class="single_option vertical">
-	<h3 class="uppercase">Inside legs <span class="size"><%= f.object.inside_legs || "30" %></span></h3>
-	<div class="slider" data-min="27" data-max="33" data-step="0.5" data-value="<%= f.object.inside_legs || "30" %>"></div>
+	<h3 class="uppercase">Inside legs <span class="size downcase"><%= f.object.inside_legs || "30" %> inches</span></h3>
+	<div class="slider" data-min="27" data-max="33" data-step="0.25" data-measure="standard" data-value="<%= f.object.inside_legs || "30" %>"></div>
 	<%= f.hidden_field :inside_legs %>
 </div>
 
 <div class="single_option vertical">
-	<h3 class="uppercase">Feet <span class="size"><%= f.object.feet || "35" %></span></h3>
-	<div class="slider" data-min="32" data-max="38" data-step="0.5" data-value="<%= f.object.feet || "35" %>"></div>
+	<h3 class="uppercase">Feet <span class="size downcase"><%= f.object.feet || "35" %> inches</span></h3>
+	<div class="slider" data-min="8.5" data-max="10.5" data-step="0.25" data-measure="standard" data-value="<%= f.object.feet || "9.5" %>"></div>
 	<%= f.hidden_field :feet %>
 </div>

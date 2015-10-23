@@ -6,7 +6,6 @@ class Users::BuildController < ApplicationController
   before_action :load_brands, only: [:show, :update, :finish_wizard_path]
 
   def show
-    @brands = Hash[@brands.to_a.shuffle]
     @step = step
     render_wizard
   end
@@ -35,7 +34,7 @@ class Users::BuildController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:gender, :email, :welcome_step, :body_shape, :neck, :chest, :sleeves, :waist, :hips, :inside_legs, :feet, :temp_brands, :brands, :age, :height, :weight, :first_name, :last_name, :email, :password)
+    params.require(:user).permit(:gender, :email, :welcome_step, :body_shape, :neck, :chest, :sleeves, :waist, :hips, :inside_legs, :feet, :temp_brands, :brands, :age, :height, :weight, :type_of_height, :type_of_weight, :first_name, :last_name, :email, :password)
   end
 
   def load_brands
@@ -121,6 +120,7 @@ class Users::BuildController < ApplicationController
           "Luis Vitton" => "luis_vitton.jpg"
         }
       end
+      @brands = Hash[@brands.to_a.shuffle]
     end
   end
 

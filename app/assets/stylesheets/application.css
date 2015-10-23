@@ -964,13 +964,16 @@ label.modern {
 
 span.size {
     color: #00c7d7;
-    border: solid #00c7d7 1px;
     padding: 7px;
     margin-left: 10px;
 }
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.downcase {
+    text-transform: lowercase;
 }
 
 ul.dotted-breadcrumb {
@@ -1039,11 +1042,10 @@ ul.dotted-breadcrumb {
   border: 2px solid #fffaf7; }
                     
   .slider .ui-slider-pip .ui-slider-line {
-    width: 4px;
-    height: 4px;
-    border-radius: 4px;
+    width: 1px;
+    height: 10px;
     margin-left: -2px;
-    background: #fffaf7; }
+    background: #aaa; }
                     
     .slider .ui-slider-pip.ui-slider-pip-last .ui-slider-line,
     .slider .ui-slider-pip.ui-slider-pip-first .ui-slider-line {
@@ -1101,9 +1103,16 @@ ul.dotted-breadcrumb {
 
   .replace_input input + label img {
     border-radius: 10px;
+    max-height: 420px;
   }
 
-.replace_input.checked label span {
+.replace_input.checked label span.title {
+    display: block;
+    text-transform: uppercase;
+    margin: 7px 0 0;
+}
+
+.replace_input.checked label span.checked {
     position: absolute;
     opacity: 0;
     top: 0;
@@ -1118,7 +1127,7 @@ ul.dotted-breadcrumb {
     line-height: 2em;
 }
 
-    .replace_input.checked input:checked + label span {
+    .replace_input.checked input:checked + label span.checked {
         opacity: 1;
     }
 
@@ -1128,6 +1137,7 @@ ul.dotted-breadcrumb {
     height: 40px;
     width: 160px;
     border-radius: 3px;
+    display: inline-block;
 }
 
     .switch input:checked + label {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016102629) do
+ActiveRecord::Schema.define(version: 20151022212333) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20151016102629) do
     t.decimal  "height",                 precision: 5, scale: 2
     t.decimal  "weight",                 precision: 5, scale: 2
     t.string   "type_of_height",                                 default: "inches"
-    t.string   "type_of_weight",                                 default: "libres"
+    t.string   "type_of_weight",                                 default: "lbs"
     t.decimal  "neck",                   precision: 3, scale: 1
     t.decimal  "bust",                   precision: 3, scale: 1
     t.decimal  "waist",                  precision: 3, scale: 1

@@ -10,4 +10,13 @@ class PagesController < ApplicationController
 		@user = current_user
 	end
 
+	def dummy_endpoint
+		result = {
+			:code => "200",
+			:size => "L",
+			:brand => "Dolce&Gabbana"
+		}
+		render json: result
+	end
+
 end

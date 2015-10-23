@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 	# t.string   "fit"
 	# t.integer  "body_shape"
 	# t.string   "type_of_height",         default: "inches"
-	# t.string   "type_of_weight",         default: "libres"
+	# t.string   "type_of_weight",         default: "lbs"
 	# t.string   "welcome_step"
   # t.string   "registration_token"
   # t.string   "provider"
@@ -123,6 +123,31 @@ class User < ActiveRecord::Base
   	errors.add(:last_name, "You must provide a last name") if last_name.blank?
 		errors.add(:email, "You must provide an email") if email.blank?
 		errors.add(:password, "You must provide a password") if password.blank?
+  end
+
+  def convert_to_feet
+    return nil unless self.height
+    inches = self.height
+    feet = Integer(inches/12)
+    inches2 = (inches - (feet*12)).to_i
+    size = "#{feet}ft"
+    size += ", #{inches2}in" if inches2 > 0
+    return size
+  end
+
+  def convert_to_cm
+    return nil unless self.height
+    return "#{self.height}cm"
+  end
+
+  def convert_to_lbs
+    return nil unless self.weight
+    return "#{self.weight}lbs"
+  end
+
+  def convert_to_kg
+    return nil unless self.weight
+    return "#{self.weight}kg"
   end
 
 end

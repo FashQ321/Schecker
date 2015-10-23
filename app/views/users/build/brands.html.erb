@@ -27,6 +27,7 @@
 										<%= f.check_box :temp_brands, { id: "user_temp_brands_#{brand[0].downcase.gsub(' ', '_')}", :multiple => true }, brand[0], nil %>
 										<label for="user_temp_brands_<%= brand[0].downcase.gsub(' ', '_') %>">
 											<%= image_tag("brands/#{brand[1]}") %>
+											<span class="title"><%= brand[0] %></span>
 											<span class="checked">✓</span>
 										</label>
 									</div>

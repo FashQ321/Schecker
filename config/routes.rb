@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
 
   get "completed" => "pages#completed", as: :completed
+  match "/dummy_endpoint" => "pages#dummy_endpoint", via: [:get, :post]
   
 end

@@ -16,7 +16,7 @@
 					<div class="row">
 						<div class="medium-6 columns">
 							<div class="replace_input">
-								<%= f.radio_button :gender, 'male' %>
+								<%= f.radio_button :gender, 'male', class: "click_through" %>
 								<label for="user_gender_male">
 									<%= image_tag("male.jpg") %>
 								</label>
@@ -24,7 +24,7 @@
 						</div>
 						<div class="medium-6 columns">
 							<div class="replace_input">
-								<%= f.radio_button :gender, 'female' %>
+								<%= f.radio_button :gender, 'female', class: "click_through" %>
 								<label for="user_gender_female">
 									<%= image_tag("female.jpg") %>
 								</label>
@@ -33,7 +33,7 @@
 					</div>
 				</div>
 
-				<%= f.submit "Continue", class: "btn" %>
+				<%# f.submit "Continue", class: "btn" %>
 
 			<% end %>
 

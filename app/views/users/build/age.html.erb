@@ -13,94 +13,49 @@
 				<h1 class="welcome">Details</h1>
 
 				<div class="row">
-					<div class="medium-6 columns">
-						<div class="options_padding">
-							<div class="single_option vertical tiny">
-								<h3 class="uppercase">Height</h3>
-								<div class="row">
-									<div class="small-6 columns">
-										<div class="switch floating right">
-											<%= f.radio_button :type_of_height, "inches" %>
-									    <label for="user_type_of_height_inches" class="first">Inches</label>
-									    <%= f.radio_button :type_of_height, "cm" %>
-									    <label for="user_type_of_height_cm" class="second">Cm</label>
-									    <span class="switch-selection"></span>
-									  </div>
-									</div>
-									<div class="small-4 end columns">
-										<div class="floating_labels">
-											<%= f.number_field :height, step: 0.1, autofocus: true %>
-											<label><%= f.object.type_of_height %></label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+					<div class="medium-4 columns right-border">
+						<%= image_tag('male.jpg') if @user.male? %>
+						<%= image_tag('female.jpg') if @user.female? %>
+
+						<div class="switch form-group">
+							<%= f.radio_button :type_of_height, "inches", class: "change_height" %>
+					    <label for="user_type_of_height_inches" class="first">Inches</label>
+					    <%= f.radio_button :type_of_height, "cm", class: "change_height" %>
+					    <label for="user_type_of_height_cm" class="second">Cm</label>
+					    <span class="switch-selection"></span>
+					  </div>
+
+					  <div class="switch form-group">
+							<%= f.radio_button :type_of_weight, "lbs" %>
+					    <label for="user_type_of_weight_lbs" class="first">Lbs</label>
+					    <%= f.radio_button :type_of_weight, "kg" %>
+					    <label for="user_type_of_weight_kg" class="second">Kg</label>
+					    <span class="switch-selection"></span>
+					  </div>
 					</div>
-					<div class="medium-6 columns">
-						<div class="options_padding">
-							<div class="single_option vertical tiny">
-								<h3 class="uppercase">Weight</h3>
-								<div class="row">
-									<div class="small-6 columns">
-										<div class="switch floating right">
-											<%= f.radio_button :type_of_weight, "libres" %>
-									    <label for="user_type_of_weight_libres" class="first">Libres</label>
-									    <%= f.radio_button :type_of_weight, "kg" %>
-									    <label for="user_type_of_weight_kg" class="second">Kg</label>
-									    <span class="switch-selection"></span>
-									  </div>
-									</div>
-									<div class="small-4 end columns">
-										<div class="floating_labels">
-											<%= f.number_field :weight, step: 0.1 %>
-											<label><%= f.object.type_of_weight %></label>
-										</div>
-									</div>
+					<div class="medium-8 columns">
+						<div class="single_option vertical">
+							<h3 class="uppercase">Height <span class="size downcase"><%= f.object.type_of_height == "inches" ? (f.object.convert_to_feet || "5ft, 5in") : (f.object.convert_to_cm || "166cm") %></span></h3>
+							<div class="slider<%= " hide" if f.object.type_of_height == "cm" %>" id="height_inches" data-min="48" data-max="83" data-step="1" data-measure="inches" data-value="<%= f.object.height || "65" %>"></div>
+							<div class="slider<%= " hide" if f.object.type_of_height == "inches" %>" id="height_cm" data-min="122" data-max="210" data-step="1" data-measure="cm" data-value="<%= f.object.height || "166" %>"></div>
+							<%= f.hidden_field :height, id: "hidden_height" %>
+						</div>
+						<div class="single_option vertical">
+							<h3 class="uppercase">Weight <span class="size downcase"><%= f.object.type_of_weight == "lbs" ? (f.object.convert_to_lbs || "170lbs") : (f.object.convert_to_kg || "70Kg") %></span></h3>
+							<div class="slider<%= " hide" if f.object.type_of_weight == "kg" %>" id="weight_lbs" data-min="88" data-max="240" data-step="1" data-measure="lbs" data-value="<%= f.object.weight || "170" %>"></div>
+							<div class="slider<%= " hide" if f.object.type_of_weight == "lbs" %>" id="weight_kg" data-min="40" data-max="110" data-step="1" data-measure="kg" data-value="<%= f.object.weight || "70" %>"></div>
+							<%= f.hidden_field :weight, id: "hidden_weight" %>
+						</div>
+						<div class="single_option vertical">
+							<h3 class="uppercase">Age</h3>
+							<div class="row">
+								<div class="medium-8 medium-centered columns">
+									<%= f.number_field :age, in: 12...99, class: "text-center", value: (f.object.age || 25) %>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="row">
-					<div class="medium-6 columns">
-						<div class="row">
-							<div class="medium-10 columns">
-								<div class="options_padding">
-									<div class="single_option vertical tiny">
-										<h3 class="uppercase">Age</h3>
-										<%= f.number_field :age, in: 18...99, class: "text-center" %>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="medium-6 columns">
-						<div class="row">
-							<div class="medium-10 columns">
-								<div class="options_padding">
-									<div class="single_option vertical tiny">
-										<h3 class="uppercase">Fit</h3>
-										<div class="switch floating centered">
-											<%= f.radio_button :fit, "loose" %>
-									    <label for="user_fit_loose" class="first">Loose</label>
-									    <%= f.radio_button :fit, "tight" %>
-									    <label for="user_fit_tight" class="second">Tight</label>
-									    <span class="switch-selection"></span>
-									  </div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				
-
-				
-
-				
 
 				<%= f.submit "Continue", class: "btn" %>
 
