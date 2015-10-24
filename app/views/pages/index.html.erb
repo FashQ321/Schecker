@@ -9,12 +9,13 @@
     <header class="intro-header parallax-window" data-parallax="scroll" data-image-src="<%= image_url('banner.png') %>">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-md-10 col-md-offset-1">
                 	<div class="logo wow flipInX animated animated" style="visibility: visible; animation-name: flipInX;">
                     <%= image_tag('logo.png') %>
                     <div class="site-heading">
-                        <h1>We help you find the right size<br> before you buy online!</h1>
-                        <%= link_to "<i class='fa fa-plus-square-o'></i>New Measurement".html_safe, user_build_index_path(:user_id => "building"), :method=> :post, class: "btn" %>
+                        <h1>Size Checking Made easy</h1>
+                        <h2 class="subheader">Get your own universal size chart that helps you find your correct size across various brands at the same time. Save time on returns. Feel confident shopping online, even from brands you have never tried before.</h2>
+                        <%= link_to "Use it now, it's free!", user_build_index_path(:user_id => "building"), :method=> :post, class: "btn" %>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
 				<%= render "shared/form_errors", object: @user %>
 				<%= f.hidden_field :welcome_step, value: @step %>
 
-				<h1 class="welcome">Select your body shape</h1>
+				<h3>What's your body type?</h3>
 
 				<div class="options_padding">
 					<%= render "users/fragments/male_shape", f: f if @user.gender == "male" %>
