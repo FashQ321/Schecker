@@ -1270,3 +1270,8 @@ h2.subheader {
     margin: 25px 0 80px;
     font-weight: 300;
 }
+
+.gender_icon {
+    display: block;
+    margin: 0 auto;
+}

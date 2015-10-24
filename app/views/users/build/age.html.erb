@@ -15,8 +15,8 @@
 				<div class="form-group">
 					<div class="row">
 						<div class="medium-4 columns right-border">
-							<%= image_tag('male.jpg') if @user.male? %>
-							<%= image_tag('female.jpg') if @user.female? %>
+							<%= image_tag('male.jpg', class: "gender_icon") if @user.male? %>
+							<%= image_tag('female.jpg', class: "gender_icon") if @user.female? %>
 
 							<div class="switch form-group">
 								<%= f.radio_button :type_of_height, "inches", class: "change_height" %>
