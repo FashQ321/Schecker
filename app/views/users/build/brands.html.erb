@@ -10,7 +10,7 @@
 				<%= render "shared/form_errors", object: @user %>
 				<%= f.hidden_field :welcome_step, value: @step %>
 
-				<h1 class="welcome">Choose your favourite brands</h1>
+				<h3>Choose your favourite brands</h3>
 
 				<div class="row">
 					<div class="medium-9 medium-centered columns">
@@ -19,7 +19,7 @@
 				</div>
 
 				<div class="options_padding big">
-					<ul class="medium-block-grid-4" id="brands">
+					<ul class="small-block-grid-2 medium-block-grid-4" id="brands">
 						<% @brands.each do |brand| %>
 							<li data-brand="<%= brand[0].downcase %>">
 								<div class="single_option">
@@ -27,7 +27,7 @@
 										<%= f.check_box :temp_brands, { id: "user_temp_brands_#{brand[0].downcase.gsub(' ', '_')}", :multiple => true }, brand[0], nil %>
 										<label for="user_temp_brands_<%= brand[0].downcase.gsub(' ', '_') %>">
 											<%= image_tag("brands/#{brand[1]}") %>
-											<span class="title"><%= brand[0] %></span>
+											<span class="title ellipsis"><%= brand[0] %></span>
 											<span class="checked">✓</span>
 										</label>
 									</div>
@@ -35,6 +35,14 @@
 							</li>
 						<% end %>
 					</ul>
+					<div class="row">
+						<div class="medium-6 medium-centered columns">
+							<div class="form-group">
+								<label class="modern">Can't see your brand? Add it here</label>
+								<%= f.text_field :other_brands, placeholder: "Comma separated list. Eg: Brand1, Brand2" %>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<%= f.submit "Continue", class: "btn" %>

@@ -150,7 +150,7 @@ a:focus,
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
-    padding: 0 0 50px;
+    padding: 35px 0 50px;
     color: #fff
 }
 .intro-header .site-heading,
@@ -976,6 +976,12 @@ span.size {
     text-transform: lowercase;
 }
 
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 ul.dotted-breadcrumb {
   position: relative;
   display: inline-block;
@@ -1031,7 +1037,7 @@ ul.dotted-breadcrumb {
   background: #434d5a;
   border: none;
   height: 10px;
-  margin: 1em 4em 4em; }
+  margin: 1em 10px 4em; }
                     
 .slider .ui-slider-handle {
   border-radius: 23px;
@@ -1238,3 +1244,17 @@ a.facebook {
     display: block;
     text-align: center;
 }
+
+a.info {
+    background-color: #42dca3;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    height: 26px;
+    width: 26px;
+    display: inline-block;
+}
+
+    a.info:hover {
+        background-color: #02c266;
+    }

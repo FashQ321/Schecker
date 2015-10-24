@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 	#DB SCHEMA
+  # t.string   "full_name"
 	# t.string   "first_name"
 	# t.string   "last_name"
 	# t.string   "gender"
@@ -24,6 +25,8 @@ class User < ActiveRecord::Base
   # t.string   "registration_token"
   # t.string   "provider"
   # t.string   "uid"
+  # t.text     "brands"
+  # t.string   "other_brands"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -39,6 +42,8 @@ class User < ActiveRecord::Base
   validate  :details, :if => :active_or_age?
   validate 	:signup, :if => :active_or_signup?
 
+  before_update :create_name
+
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil, session_id=nil)
     user = User.find_by(:provider => auth.provider, :uid => auth.uid)
@@ -46,8 +51,9 @@ class User < ActiveRecord::Base
     user = User.find_by(:email => auth.info.email)
     return user if user
     user = User.find_by(:registration_token => session_id)
-    user.first_name = ( auth.info.has_key?('first_name') ? auth.info.first_name : auth.info.name.split(" ")[0] )
-    user.last_name = ( auth.info.has_key?('last_name') ? auth.info.last_name : auth.info.name.split(" ")[1] )
+    # user.first_name = ( auth.info.has_key?('first_name') ? auth.info.first_name : auth.info.name.split(" ")[0] )
+    # user.last_name = ( auth.info.has_key?('last_name') ? auth.info.last_name : auth.info.name.split(" ")[1] )
+    user.full_name = auth.info.name
     user.provider = auth.provider
     user.uid = auth.uid
     user.email = ( auth.info.has_key?('email') ? auth.info.email : "#{session_id}@fake-email.com" )
@@ -119,10 +125,18 @@ class User < ActiveRecord::Base
   end
 
   def signup
-  	errors.add(:first_name, "You must provide a first name") if first_name.blank?
-  	errors.add(:last_name, "You must provide a last name") if last_name.blank?
-		errors.add(:email, "You must provide an email") if email.blank?
+    puts "SIZE: #{full_name.split(" ").size}"
+  	errors.add(:full_name, "You must provide a full name") if full_name.blank? || full_name.split(" ").size == 1
+  	errors.add(:email, "You must provide an email") if email.blank?
 		errors.add(:password, "You must provide a password") if password.blank?
+  end
+
+  def create_name
+    if self.changed.include?('full_name')
+      ar = self.full_name.split(" ")
+      self.first_name = ar[0]
+      self.last_name = ar.size > 1 ? ar[1] : nil
+    end
   end
 
   def convert_to_feet

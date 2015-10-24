@@ -10,7 +10,7 @@
 				<%= render "shared/form_errors", object: @user %>
 				<%= f.hidden_field :welcome_step, value: @step %>
 
-				<h3>Enter your correct measurements</h3>
+				<h3>Enter your correct measurements <a href="#" class="info">i</a></h3>
 
 				<div class="options_padding">
 					<%= render "users/fragments/male_measurements", f: f if @user.male? %>

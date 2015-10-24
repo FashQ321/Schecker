@@ -34,7 +34,7 @@ class Users::BuildController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:gender, :email, :welcome_step, :body_shape, :neck, :chest, :sleeves, :waist, :hips, :inside_legs, :feet, :temp_brands, :brands, :age, :height, :weight, :type_of_height, :type_of_weight, :first_name, :last_name, :email, :password)
+    params.require(:user).permit(:gender, :email, :welcome_step, :body_shape, :neck, :chest, :sleeves, :waist, :hips, :inside_legs, :feet, :temp_brands, :brands, :age, :height, :weight, :type_of_height, :type_of_weight, :first_name, :last_name, :full_name, :email, :password, :other_brands)
   end
 
   def load_brands
@@ -54,7 +54,7 @@ class Users::BuildController < ApplicationController
           "Carven" => "carven.jpeg",
           "Coast" => "coast.jpg",
           "COS" => "cos.jpg",
-          "Dolce&gabban" => "dolce&gabbana.jpg",
+          "Dolce&gabbana" => "dolce&gabbana.jpg",
           "Dorothy Perkins" => "dorothy_perkins.jpeg",
           "Evans" => "evans.jpeg",
           "French Connection" => "french_connection.jpg",
