@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@import url(http://fonts.googleapis.com/css?family=Signika:400,600,700,300);
+@import url(https://fonts.googleapis.com/css?family=Signika:400,600,700,300);
 
 body {
   font-family: 'Signika', sans-serif;
@@ -1258,3 +1258,8 @@ a.info {
     a.info:hover {
         background-color: #02c266;
     }
+
+h2.subheader {
+    margin: 25px 0 80px;
+    font-weight: 300;
+}
