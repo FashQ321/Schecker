@@ -20,7 +20,7 @@
   <![endif]-->
   
 </head>
-<body>
+<body<%= raw " class='homepage'" if @is_homepage %>>
 
 <%= yield %>
 

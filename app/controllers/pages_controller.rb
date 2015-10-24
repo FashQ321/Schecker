@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 	before_action :authenticate_user!, only: [:completed]
 
 	def index
+		@is_homepage = true
 	end
 
 	def completed
